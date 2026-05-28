@@ -23,25 +23,6 @@ const features = [
   { tag: "Reportes",   icon: "📊", title: "Reportes en tiempo real",    desc: "Pacientes activos, sesiones completadas, ingresos del mes y rendimiento por profesional." },
 ];
 
-const pains = [
-  {
-    title: "Fichas en papel o en el celular",
-    sub: "perdés el historial de tus pacientes sin darte cuenta",
-  },
-  {
-    title: "No sabés en qué sesión va cada paciente",
-    sub: "ni qué trabajaste la vez anterior — lo manejás de memoria",
-  },
-  {
-    title: "Sin control de sesiones restantes por plan",
-    sub: "el paciente te pregunta cuántas le quedan y tenés que buscarlo",
-  },
-  {
-    title: "Si falta el profesional, nadie sabe nada",
-    sub: "sin sistema, el estado de cada tratamiento se va con él",
-  },
-];
-
 export default function FlowixSaludLanding() {
   return (
     <main style={{ fontFamily: "'Outfit', system-ui, sans-serif", color: "#fff", background: "#000", overflowX: "hidden" }}>
@@ -69,7 +50,6 @@ export default function FlowixSaludLanding() {
         <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: 2 }}>
           <a href="#funciones" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Funciones</a>
           <a href="#detalle"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>El sistema</a>
-          <a href="#faq"       className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>FAQ</a>
         </div>
         <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
           background: B, color: "#000", fontSize: 14, fontWeight: 700,
@@ -84,7 +64,7 @@ export default function FlowixSaludLanding() {
         <div aria-hidden style={{
           position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)",
           width: 1000, height: 560,
-          background: "radial-gradient(ellipse at 50% 0%, rgba(96,165,250,0.10) 0%, transparent 62%)",
+          background: "radial-gradient(ellipse at 50% 0%, rgba(96,165,250,0.12) 0%, transparent 62%)",
           pointerEvents: "none",
         }} />
         <div aria-hidden style={{
@@ -95,7 +75,7 @@ export default function FlowixSaludLanding() {
         }} />
         <div aria-hidden style={{
           position: "absolute", inset: 0,
-          backgroundImage: "linear-gradient(rgba(96,165,250,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,0.02) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(96,165,250,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(96,165,250,0.025) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
           maskImage: "radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 100%)",
           pointerEvents: "none",
@@ -131,7 +111,7 @@ export default function FlowixSaludLanding() {
               Historia clínica digital, planes de tratamiento y agenda en un solo lugar. Para kinesiólogos, quiroprácticos y más.
             </p>
 
-            <div className="anim-up" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28, animationDelay: "0.32s" }}>
+            <div className="anim-up cta-buttons" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28, animationDelay: "0.32s" }}>
               <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
                 background: B, color: "#000", fontWeight: 700, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12, letterSpacing: "-0.3px",
@@ -206,9 +186,9 @@ export default function FlowixSaludLanding() {
               {/* Stats row */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8 }}>
                 {[
-                  { label: "Sesiones",    value: "7",       color: B },
-                  { label: "Restantes",   value: "5",       color: "#fff" },
-                  { label: "Próxima",     value: "Lun",     color: "#fff" },
+                  { label: "Sesiones",  value: "7",   color: B },
+                  { label: "Restantes", value: "5",   color: "#fff" },
+                  { label: "Próxima",   value: "Lun", color: "#fff" },
                 ].map(s => (
                   <div key={s.label} style={{ background: "rgba(255,255,255,0.03)", borderRadius: 10, padding: "10px 8px", textAlign: "center" as const, border: "1px solid rgba(255,255,255,0.05)" }}>
                     <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: s.color, letterSpacing: "-0.5px" }}>{s.value}</p>
@@ -225,10 +205,10 @@ export default function FlowixSaludLanding() {
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.01)" }}>
         <div className="stats-grid sr" style={{ maxWidth: 1180, margin: "0 auto", padding: "30px 40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", textAlign: "center" as const }}>
           {[
-            { value: "2",      label: "Rubros en lanzamiento" },
-            { value: "100%",   label: "Historia clínica digital" },
-            { value: "∞",      label: "Sesiones por paciente" },
-            { value: "ARG",    label: "Soporte local directo" },
+            { value: "2",    label: "Rubros en lanzamiento" },
+            { value: "100%", label: "Historia clínica digital" },
+            { value: "∞",    label: "Sesiones por paciente" },
+            { value: "ARG",  label: "Soporte local directo" },
           ].map((s, i) => (
             <div key={i} style={{ padding: "0 24px", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.05)" : undefined }}>
               <p style={{ margin: 0, fontSize: "clamp(20px, 2.5vw, 28px)", fontWeight: 800, letterSpacing: "-1px", color: B }}>{s.value}</p>
@@ -258,63 +238,6 @@ export default function FlowixSaludLanding() {
         </div>
       </section>
 
-      {/* ── PAIN POINTS ─────────────────────────────────────── */}
-      <section className="section-pad" style={{ padding: "80px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-        <div className="pain-grid" style={{ maxWidth: 1180, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
-
-          <div className="sr">
-            <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>El problema</p>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.05, marginBottom: 14 }}>
-              ¿Tu centro<br />todavía funciona así?
-            </h2>
-            <p style={{ color: "#6b6b6b", fontSize: 16, lineHeight: 1.7, marginBottom: 40, maxWidth: 420 }}>
-              La mayoría de los profesionales de la salud pierden tiempo valioso por no tener las herramientas digitales adecuadas.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column" as const }}>
-              {pains.map((pain, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 14, padding: "18px 0", borderBottom: i < pains.length - 1 ? "1px solid rgba(255,255,255,0.05)" : undefined }}>
-                  <div style={{
-                    width: 22, height: 22, borderRadius: 6, flexShrink: 0, marginTop: 1,
-                    background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.2)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                  }}>
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="3" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                  </div>
-                  <p style={{ margin: 0, fontSize: 14, color: "#888", lineHeight: 1.6 }}>
-                    <strong style={{ color: "#bbb" }}>{pain.title}</strong>
-                    {" "}— {pain.sub}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Card "Sin sistema" */}
-          <div className="sr" style={{ transitionDelay: "0.15s" }}>
-            <div style={{ background: "rgba(8,8,10,0.95)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 20, overflow: "hidden", boxShadow: "0 40px 80px rgba(0,0,0,0.5)" }}>
-              <div style={{ padding: "12px 16px", background: "rgba(255,255,255,0.03)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 6 }}>
-                {["#ff5f56","#ffbd2e","#27c93f"].map(c => <div key={c} style={{ width: 9, height: 9, borderRadius: "50%", background: c }} />)}
-                <span style={{ flex: 1, textAlign: "center" as const, fontSize: 10, color: "#333", fontWeight: 600, letterSpacing: "0.04em" }}>Sin sistema</span>
-              </div>
-              <div style={{ padding: 28 }}>
-                <p style={{ fontSize: 10, color: "#333", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" as const, marginBottom: 8 }}>Tiempo perdido por semana</p>
-                <p style={{ fontSize: 52, fontWeight: 900, color: "#ef4444", letterSpacing: "-3px", margin: 0, lineHeight: 1 }}>+6hs</p>
-                <p style={{ fontSize: 13, color: "#444", marginTop: 6, marginBottom: 20 }}>buscando fichas, recordando tratamientos y cerrando la caja a mano</p>
-                <div style={{ height: 4, background: "rgba(239,68,68,0.15)", borderRadius: 4, marginBottom: 20, overflow: "hidden" }}>
-                  <div style={{ width: "65%", height: "100%", background: "#ef4444", borderRadius: 4 }} />
-                </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
-                  {["Fichas perdidas","Sin historial","Planes sin control","Caja manual"].map(t => (
-                    <span key={t} style={{ fontSize: 11, color: "#555", background: "rgba(239,68,68,0.06)", border: "1px solid rgba(239,68,68,0.12)", borderRadius: 6, padding: "4px 10px" }}>{t}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── FEATURES ────────────────────────────────────────── */}
       <section id="funciones" className="section-pad" style={{ padding: "80px 40px 100px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -338,6 +261,38 @@ export default function FlowixSaludLanding() {
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.12)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, marginBottom: 20 }}>{f.icon}</div>
                 <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 10, letterSpacing: "-0.3px" }}>{f.title}</h3>
                 <p style={{ fontSize: 14, color: "#6b6b6b", lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CÓMO FUNCIONA ───────────────────────────────────── */}
+      <section className="section-pad" style={{ padding: "80px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto" }}>
+          <p className="sr" style={{ textAlign: "center" as const, color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Cómo funciona</p>
+          <h2 className="sr" style={{ textAlign: "center" as const, fontSize: "clamp(28px, 3.5vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", margin: "0 0 72px", lineHeight: 1.04 }}>
+            Arrancás en <em style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", color: B }}>3 pasos.</em>
+          </h2>
+          <div style={{ display: "flex", flexDirection: "column" as const }}>
+            {[
+              { n: "01", title: "Registrate y configurá tu centro", desc: "Creás tu cuenta, agregás tus profesionales y especialidades. Sin configuraciones complejas ni conocimientos técnicos." },
+              { n: "02", title: "Cargá tus pacientes y sus planes", desc: "Creás la historia clínica digital de cada paciente, definís su diagnóstico y establecés el plan de tratamiento con la cantidad de sesiones." },
+              { n: "03", title: "Gestioná desde el primer día", desc: "Agendá turnos, registrá notas de sesión al instante y seguí el progreso de cada plan en tiempo real. El sistema hace el resto." },
+            ].map((s, i) => (
+              <div key={s.n} className="sr" style={{ display: "flex", gap: 32, paddingBottom: 48, position: "relative", transitionDelay: `${i * 0.12}s` }}>
+                {i < 2 && <div style={{ position: "absolute", left: 23, top: 48, bottom: 0, width: 1, background: "rgba(255,255,255,0.05)" }} />}
+                <div style={{
+                  width: 48, height: 48, borderRadius: "50%", flexShrink: 0,
+                  background: i === 0 ? B : "rgba(255,255,255,0.03)",
+                  border: `1px solid ${i === 0 ? B : "rgba(255,255,255,0.08)"}`,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontWeight: 700, fontSize: 13, color: i === 0 ? "#000" : "#444",
+                }}>{s.n}</div>
+                <div style={{ paddingTop: 10 }}>
+                  <h3 style={{ fontSize: 18, fontWeight: 700, marginBottom: 8, letterSpacing: "-0.5px" }}>{s.title}</h3>
+                  <p style={{ fontSize: 14, color: "#6b6b6b", lineHeight: 1.7, margin: 0 }}>{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -381,7 +336,6 @@ export default function FlowixSaludLanding() {
                 <span style={{ flex: 1, textAlign: "center" as const, fontSize: 10, color: "#333", fontWeight: 600 }}>Flowix Salud — Historia clínica</span>
               </div>
               <div style={{ padding: 20 }}>
-                {/* Patient card */}
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14, padding: "10px 12px", background: "rgba(96,165,250,0.05)", borderRadius: 10, border: "1px solid rgba(96,165,250,0.1)" }}>
                   <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(96,165,250,0.15)", border: "1px solid rgba(96,165,250,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: B }}>M</div>
                   <div>
@@ -389,12 +343,10 @@ export default function FlowixSaludLanding() {
                     <p style={{ margin: 0, fontSize: 10, color: "#555" }}>Lumbalgia L4-L5 · Paciente activa</p>
                   </div>
                 </div>
-                {/* Antecedentes */}
                 <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 10, padding: "10px 12px", marginBottom: 10 }}>
                   <p style={{ margin: "0 0 4px", fontSize: 9, color: "#444", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Antecedentes</p>
                   <p style={{ margin: 0, fontSize: 11, color: "#666", lineHeight: 1.5 }}>Sin patologías previas. Trabajo sedentario 8hs/día. Rx: protrusión L4-L5.</p>
                 </div>
-                {/* Notas recientes */}
                 <p style={{ margin: "0 0 8px", fontSize: 9, color: "#444", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Últimas notas</p>
                 {[
                   { date: "27/05", note: "Mejora en flexión. Trabajo lumbar + estabilización." },
@@ -433,9 +385,9 @@ export default function FlowixSaludLanding() {
               </div>
               <div style={{ padding: 20 }}>
                 {[
-                  { name: "María G.",  diag: "Lumbalgia L4-L5",      sessions: 7,  total: 12, color: B },
-                  { name: "Carlos R.", diag: "Cervicalgia crónica",   sessions: 3,  total: 8,  color: "#a78bfa" },
-                  { name: "Laura M.",  diag: "Esguince tobillo",      sessions: 10, total: 10, color: "#34d399" },
+                  { name: "María G.",  diag: "Lumbalgia L4-L5",    sessions: 7,  total: 12, color: B },
+                  { name: "Carlos R.", diag: "Cervicalgia crónica", sessions: 3,  total: 8,  color: "#a78bfa" },
+                  { name: "Laura M.",  diag: "Esguince tobillo",    sessions: 10, total: 10, color: "#34d399" },
                 ].map((p, i) => (
                   <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 12, padding: "12px 14px", marginBottom: 10 }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
@@ -485,10 +437,10 @@ export default function FlowixSaludLanding() {
                   <div style={{ background: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.2)", borderRadius: 7, padding: "4px 10px", fontSize: 10, color: B, fontWeight: 600 }}>En curso</div>
                 </div>
                 {[
-                  { time: "09:00", name: "María G.",   diag: "Lumbalgia · Ses. 7",   color: B,        done: true  },
-                  { time: "10:30", name: "Carlos R.",  diag: "Cervicalgia · Ses. 3",  color: "#a78bfa", done: false },
-                  { time: "12:00", name: "Laura M.",   diag: "Esguince · Ses. 10",   color: "#34d399", done: false },
-                  { time: "15:00", name: "Jorge P.",   diag: "Lumbalgia · Ses. 2",   color: "#f59e0b", done: false },
+                  { time: "09:00", name: "María G.",  diag: "Lumbalgia · Ses. 7",  color: B,         done: true  },
+                  { time: "10:30", name: "Carlos R.", diag: "Cervicalgia · Ses. 3", color: "#a78bfa", done: false },
+                  { time: "12:00", name: "Laura M.",  diag: "Esguince · Ses. 10",  color: "#34d399", done: false },
+                  { time: "15:00", name: "Jorge P.",  diag: "Lumbalgia · Ses. 2",  color: "#f59e0b", done: false },
                 ].map((a, i) => (
                   <div key={i} style={{
                     display: "flex", alignItems: "center", gap: 10,
@@ -512,61 +464,38 @@ export default function FlowixSaludLanding() {
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section id="faq" className="section-pad" style={{ padding: "80px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-        <div style={{ maxWidth: 760, margin: "0 auto" }}>
-          <div className="sr" style={{ marginBottom: 52, textAlign: "center" as const }}>
-            <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>FAQ</p>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", lineHeight: 1.04 }}>
-              Preguntas frecuentes
-            </h2>
-          </div>
-          <div className="sr" style={{ display: "flex", flexDirection: "column" as const }}>
-            {[
-              { q: "¿Cuándo está disponible?", a: "Estamos en desarrollo activo. Los primeros en sumarse al acceso anticipado tienen precio especial de lanzamiento y acceso prioritario cuando el sistema esté listo." },
-              { q: "¿Puedo cancelar en cualquier momento?", a: "Sí. Sin contratos de permanencia. Podés cancelar cuando quieras, sin penalidades ni cargos adicionales." },
-              { q: "¿Funciona para más de un profesional?", a: "Sí. El sistema soporta múltiples profesionales dentro del mismo centro, cada uno con su propia agenda y pacientes." },
-              { q: "¿Qué pasa con mis datos si cancelo?", a: "Tus datos son tuyos. Podés exportarlos antes de cancelar. Nada se elimina sin tu autorización expresa." },
-              { q: "¿Incluye obra social?", a: "Por ahora el sistema trabaja con pago particular únicamente. La integración con obras sociales está en el roadmap para una fase futura." },
-              { q: "¿Necesito conocimientos técnicos?", a: "No. El sistema está diseñado para profesionales de la salud, no para técnicos. Si usás WhatsApp, podés usar Flowix Salud." },
-            ].map((item, i) => (
-              <details key={i} className="faq-item" style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                <summary style={{ padding: "20px 4px", fontSize: 16, fontWeight: 600, color: "#ccc", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
-                  {item.q}
-                  <span className="faq-arrow" style={{ color: B, fontSize: 22, fontWeight: 300, flexShrink: 0, lineHeight: 1 }}>+</span>
-                </summary>
-                <p style={{ fontSize: 15, color: "#6b6b6b", lineHeight: 1.75, paddingBottom: 20, paddingLeft: 4, margin: 0 }}>{item.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA FINAL ────────────────────────────────────────── */}
+      {/* ── ACCESO ANTICIPADO ────────────────────────────────── */}
       <section className="section-pad" style={{ padding: "80px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-          <div style={{
-            background: "linear-gradient(135deg, rgba(96,165,250,0.06) 0%, rgba(0,0,0,0) 60%)",
-            border: "1px solid rgba(96,165,250,0.12)", borderRadius: 28,
-            textAlign: "center" as const, padding: "90px 64px", position: "relative", overflow: "hidden",
+          <div className="download-grid sr" style={{
+            background: "linear-gradient(135deg, rgba(96,165,250,0.06) 0%, rgba(0,0,0,0) 55%)",
+            border: "1px solid rgba(96,165,250,0.12)", borderRadius: 24,
+            padding: "64px 64px", display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "center",
           }}>
-            <div aria-hidden style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 400, background: "radial-gradient(ellipse, rgba(96,165,250,0.07) 0%, transparent 65%)", pointerEvents: "none" }} />
-            <div className="sr" style={{ position: "relative" }}>
-              <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 20 }}>Acceso anticipado</p>
-              <h2 style={{ fontSize: "clamp(26px, 4.5vw, 60px)", fontWeight: 800, letterSpacing: "-3px", lineHeight: 1.02, marginBottom: 22 }}>
+            <div>
+              <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Acceso anticipado</p>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", margin: "0 0 16px", lineHeight: 1.04 }}>
                 Sé el primero en<br /><em style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", color: B }}>usar Flowix Salud.</em>
               </h2>
-              <p style={{ fontSize: 17, color: "#6b6b6b", lineHeight: 1.75, maxWidth: 460, margin: "0 auto 48px" }}>
+              <p style={{ color: "#6b6b6b", fontSize: 16, lineHeight: 1.75, margin: "0 0 32px", maxWidth: 420 }}>
                 Los profesionales que se sumen ahora obtienen precio especial de lanzamiento y acompañamiento directo durante la implementación.
               </p>
-              <div className="cta-buttons" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-                <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{ background: B, color: "#000", fontWeight: 700, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12 }}>
-                  Quiero acceso anticipado →
-                </a>
-                <a href={WA_GENERAL} target="_blank" rel="noopener noreferrer" style={{ background: "rgba(255,255,255,0.05)", color: "#ccc", fontWeight: 500, fontSize: 15, textDecoration: "none", padding: "16px 36px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.1)" }}>
-                  Tengo una pregunta
-                </a>
+              <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+                {["Precio de lanzamiento", "Sin contrato", "Datos seguros", "Soporte directo"].map(t => (
+                  <span key={t} style={{ color: "#444", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ color: B }}>✓</span> {t}
+                  </span>
+                ))}
               </div>
+            </div>
+            <div className="download-cta" style={{ textAlign: "center" as const }}>
+              <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
+                display: "inline-flex", alignItems: "center", gap: 10,
+                background: B, color: "#000", fontWeight: 700, fontSize: 16,
+                textDecoration: "none", padding: "16px 36px", borderRadius: 14,
+                whiteSpace: "nowrap" as const, letterSpacing: "-0.3px",
+              }}>Quiero acceso anticipado →</a>
+              <p style={{ color: "#333", fontSize: 12, marginTop: 12 }}>Kinesiología · Quiropraxia y más</p>
             </div>
           </div>
         </div>
@@ -575,7 +504,7 @@ export default function FlowixSaludLanding() {
       {/* ── FOOTER ──────────────────────────────────────────── */}
       <footer style={{ borderTop: "1px solid rgba(255,255,255,0.05)", padding: "64px 40px 40px" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
-          <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 52, marginBottom: 52 }}>
+          <div className="footer-grid" style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 52, marginBottom: 52 }}>
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: 11, marginBottom: 16 }}>
                 <div style={{ background: B, color: "#000", fontFamily: "monospace", fontWeight: 800, fontSize: 13, padding: "4px 10px", borderRadius: 8 }}>{"</>"}</div>
@@ -597,10 +526,9 @@ export default function FlowixSaludLanding() {
             <div>
               <p style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em", color: "#333", marginBottom: 18 }}>Producto</p>
               {[
-                { label: "Funciones",          href: "#funciones" },
-                { label: "El sistema",         href: "#detalle" },
-                { label: "FAQ",                href: "#faq" },
-                { label: "Acceso anticipado",  href: WA_EARLY },
+                { label: "Funciones",         href: "#funciones" },
+                { label: "El sistema",        href: "#detalle" },
+                { label: "Acceso anticipado", href: WA_EARLY },
               ].map(l => (
                 <a key={l.label} href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined} className="footer-link" style={{ display: "block", color: "#444", fontSize: 14, textDecoration: "none", marginBottom: 11 }}>{l.label}</a>
               ))}
@@ -616,10 +544,12 @@ export default function FlowixSaludLanding() {
                   {l.label}
                 </a>
               ))}
-              <a href="https://www.instagram.com/flowixagency/" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: "flex", alignItems: "center", gap: 7, color: "#444", fontSize: 14, textDecoration: "none" }}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style={{ color: "#e1306c" }}><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                Instagram
-              </a>
+            </div>
+            <div>
+              <p style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em", color: "#333", marginBottom: 18 }}>Especialidades</p>
+              {niches.map(n => (
+                <p key={n.label} style={{ color: "#444", fontSize: 13, marginBottom: 9 }}>{n.emoji} {n.label}</p>
+              ))}
             </div>
           </div>
 
