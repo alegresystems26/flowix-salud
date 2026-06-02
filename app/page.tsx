@@ -5,13 +5,17 @@ const WA_EARLY   = `https://wa.me/5491126730927?text=Hola!%20Quiero%20anotarme%2
 const WA_GENERAL = `https://wa.me/5491126730927?text=Hola!%20Me%20interesa%20Flowix%20Salud.%20%C2%BFMe%20pod%C3%A9s%20dar%20m%C3%A1s%20informaci%C3%B3n%3F`;
 const WA_SOPORTE = `https://wa.me/5491133383949?text=Hola!%20Necesito%20ayuda%20con%20Flowix%20Salud.`;
 
+const SYSTEM_URL    = "https://flowix-salud-production.up.railway.app";
+const SYSTEM_LOGIN  = `${SYSTEM_URL}/login`;
+const SYSTEM_REGISTER = `${SYSTEM_URL}/register`;
+
 const niches = [
   { emoji: "🦴", label: "Kinesiología" },
-  { emoji: "🔧", label: "Quiropraxia" },
+  { emoji: "🙆", label: "Quiropraxia" },
+  { emoji: "🦷", label: "Odontología" },
   { emoji: "🧠", label: "Psicología" },
   { emoji: "🥗", label: "Nutrición" },
-  { emoji: "✨", label: "Estética médica" },
-  { emoji: "💆", label: "Masajes terapéuticos" },
+  { emoji: "🏥", label: "Otros centros" },
 ];
 
 const features = [
@@ -51,10 +55,17 @@ export default function FlowixSaludLanding() {
           <a href="#funciones" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Funciones</a>
           <a href="#detalle"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>El sistema</a>
         </div>
-        <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
-          background: B, color: "#000", fontSize: 14, fontWeight: 700,
-          textDecoration: "none", padding: "10px 24px", borderRadius: 10,
-        }}>Acceso anticipado</a>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <a href={SYSTEM_LOGIN} style={{
+            color: "#71717a", fontSize: 14, fontWeight: 600,
+            textDecoration: "none", padding: "10px 18px", borderRadius: 10,
+            border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)",
+          }}>Ingresar →</a>
+          <a href={SYSTEM_REGISTER} style={{
+            background: B, color: "#000", fontSize: 14, fontWeight: 700,
+            textDecoration: "none", padding: "10px 24px", borderRadius: 10,
+          }}>Registrarse gratis</a>
+        </div>
       </nav>
 
       {/* ── HERO ─────────────────────────────────────────────── */}
@@ -112,15 +123,15 @@ export default function FlowixSaludLanding() {
             </p>
 
             <div className="anim-up cta-buttons" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28, animationDelay: "0.32s" }}>
-              <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
+              <a href={SYSTEM_REGISTER} style={{
                 background: B, color: "#000", fontWeight: 700, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12, letterSpacing: "-0.3px",
-              }}>Quiero acceso anticipado →</a>
-              <a href="#funciones" style={{
+              }}>Empezar gratis →</a>
+              <a href={SYSTEM_LOGIN} style={{
                 background: "rgba(255,255,255,0.05)", color: "#e4e4e7", fontWeight: 600, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12,
                 border: "1px solid rgba(255,255,255,0.1)",
-              }}>Ver funciones</a>
+              }}>Ya tengo cuenta</a>
             </div>
 
             <div className="anim-up" style={{ display: "flex", gap: 22, flexWrap: "wrap", animationDelay: "0.42s" }}>
@@ -488,14 +499,21 @@ export default function FlowixSaludLanding() {
                 ))}
               </div>
             </div>
-            <div className="download-cta" style={{ textAlign: "center" as const }}>
-              <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
+            <div className="download-cta" style={{ textAlign: "center" as const, display: "flex", flexDirection: "column" as const, gap: 12 }}>
+              <a href={SYSTEM_REGISTER} style={{
                 display: "inline-flex", alignItems: "center", gap: 10,
                 background: B, color: "#000", fontWeight: 700, fontSize: 16,
                 textDecoration: "none", padding: "16px 36px", borderRadius: 14,
                 whiteSpace: "nowrap" as const, letterSpacing: "-0.3px",
-              }}>Quiero acceso anticipado →</a>
-              <p style={{ color: "#333", fontSize: 12, marginTop: 12 }}>Kinesiología · Quiropraxia y más</p>
+              }}>Registrar mi centro →</a>
+              <a href={SYSTEM_LOGIN} style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
+                color: "#555", fontSize: 14, textDecoration: "none",
+                border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12,
+                padding: "12px 28px", background: "rgba(255,255,255,0.03)",
+                whiteSpace: "nowrap" as const,
+              }}>Ya tengo cuenta · Ingresar →</a>
+              <p style={{ color: "#333", fontSize: 12, margin: 0 }}>Kinesiología · Quiropraxia · Odontología y más</p>
             </div>
           </div>
         </div>
@@ -526,9 +544,10 @@ export default function FlowixSaludLanding() {
             <div>
               <p style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em", color: "#333", marginBottom: 18 }}>Producto</p>
               {[
-                { label: "Funciones",         href: "#funciones" },
-                { label: "El sistema",        href: "#detalle" },
-                { label: "Acceso anticipado", href: WA_EARLY },
+                { label: "Funciones",    href: "#funciones" },
+                { label: "El sistema",   href: "#detalle" },
+                { label: "Registrarse",  href: SYSTEM_REGISTER },
+                { label: "Ingresar",     href: SYSTEM_LOGIN },
               ].map(l => (
                 <a key={l.label} href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined} className="footer-link" style={{ display: "block", color: "#444", fontSize: 14, textDecoration: "none", marginBottom: 11 }}>{l.label}</a>
               ))}
