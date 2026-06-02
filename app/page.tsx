@@ -5,9 +5,10 @@ const WA_EARLY   = `https://wa.me/5491126730927?text=Hola!%20Quiero%20anotarme%2
 const WA_GENERAL = `https://wa.me/5491126730927?text=Hola!%20Me%20interesa%20Flowix%20Salud.%20%C2%BFMe%20pod%C3%A9s%20dar%20m%C3%A1s%20informaci%C3%B3n%3F`;
 const WA_SOPORTE = `https://wa.me/5491133383949?text=Hola!%20Necesito%20ayuda%20con%20Flowix%20Salud.`;
 
-const SYSTEM_URL    = "https://flowix-salud-production.up.railway.app";
-const SYSTEM_LOGIN  = `${SYSTEM_URL}/login`;
+const SYSTEM_URL      = "https://flowix-salud-production.up.railway.app";
+const SYSTEM_LOGIN    = `${SYSTEM_URL}/login`;
 const SYSTEM_REGISTER = `${SYSTEM_URL}/register`;
+const DOWNLOAD_URL    = "https://github.com/alegresystems26/flowix-salud-desktop/releases/download/v1.0.0/Flowix.Salud.Setup.1.0.0.exe";
 
 const niches = [
   { emoji: "🦴", label: "Kinesiología" },
@@ -122,16 +123,22 @@ export default function FlowixSaludLanding() {
             </p>
 
             <div className="anim-up cta-buttons" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28, animationDelay: "0.32s" }}>
-              <a href={SYSTEM_REGISTER} style={{
-                background: B, color: "#000", fontWeight: 700, fontSize: 15,
+              <a href={DOWNLOAD_URL} style={{
+                background: B, color: "#fff", fontWeight: 700, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12, letterSpacing: "-0.3px",
-              }}>Empezar gratis →</a>
+                display: "flex", alignItems: "center", gap: 8,
+              }}>
+                ⬇ Descargar para Windows
+              </a>
               <a href={SYSTEM_LOGIN} style={{
                 background: "rgba(255,255,255,0.05)", color: "#e4e4e7", fontWeight: 600, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12,
                 border: "1px solid rgba(255,255,255,0.1)",
-              }}>Ya tengo cuenta</a>
+              }}>Probar online →</a>
             </div>
+            <p className="anim-up" style={{ fontSize: 12, color: "#3a3a3a", animationDelay: "0.38s" }}>
+              Windows 10/11 · 64 bits · <a href={SYSTEM_REGISTER} style={{ color: "#555", textDecoration: "underline" }}>o registrate directamente online</a>
+            </p>
 
             <div className="anim-up" style={{ display: "flex", gap: 22, flexWrap: "wrap", animationDelay: "0.42s" }}>
               {["Precio especial de lanzamiento", "Sin contrato", "Datos seguros"].map(t => (
@@ -499,20 +506,20 @@ export default function FlowixSaludLanding() {
               </div>
             </div>
             <div className="download-cta" style={{ textAlign: "center" as const, display: "flex", flexDirection: "column" as const, gap: 12 }}>
-              <a href={SYSTEM_REGISTER} style={{
-                display: "inline-flex", alignItems: "center", gap: 10,
-                background: B, color: "#000", fontWeight: 700, fontSize: 16,
+              <a href={DOWNLOAD_URL} style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10,
+                background: B, color: "#fff", fontWeight: 700, fontSize: 16,
                 textDecoration: "none", padding: "16px 36px", borderRadius: 14,
                 whiteSpace: "nowrap" as const, letterSpacing: "-0.3px",
-              }}>Registrar mi centro →</a>
+              }}>⬇ Descargar para Windows</a>
               <a href={SYSTEM_LOGIN} style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
                 color: "#555", fontSize: 14, textDecoration: "none",
                 border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12,
                 padding: "12px 28px", background: "rgba(255,255,255,0.03)",
                 whiteSpace: "nowrap" as const,
-              }}>Ya tengo cuenta · Ingresar →</a>
-              <p style={{ color: "#333", fontSize: 12, margin: 0 }}>Kinesiología · Quiropraxia · Odontología y más</p>
+              }}>Probar online · Ingresar →</a>
+              <p style={{ color: "#333", fontSize: 12, margin: 0 }}>Windows 10/11 · Sin tarjeta · Kinesiología · Quiropraxia · Odontología</p>
             </div>
           </div>
         </div>
