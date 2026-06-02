@@ -55,16 +55,15 @@ export default function FlowixSaludLanding() {
           <a href="#funciones" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Funciones</a>
           <a href="#detalle"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>El sistema</a>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <a href={SYSTEM_LOGIN} style={{
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <a href={SYSTEM_LOGIN} className="nav-link" style={{
             color: "#71717a", fontSize: 14, fontWeight: 600,
-            textDecoration: "none", padding: "10px 18px", borderRadius: 10,
-            border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)",
-          }}>Ingresar →</a>
+            textDecoration: "none", padding: "8px 16px", borderRadius: 8,
+          }}>Ingresar</a>
           <a href={SYSTEM_REGISTER} style={{
             background: B, color: "#000", fontSize: 14, fontWeight: 700,
             textDecoration: "none", padding: "10px 24px", borderRadius: 10,
-          }}>Registrarse gratis</a>
+          }}>Empezar gratis</a>
         </div>
       </nav>
 
