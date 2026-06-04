@@ -57,7 +57,7 @@ export default function FlowixSaludLanding() {
           <a href="#detalle"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>El sistema</a>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <a href={SYSTEM_LOGIN} className="nav-link" style={{
+          <a href={SYSTEM_LOGIN} className="nav-link nav-login-btn" style={{
             color: "#71717a", fontSize: 14, fontWeight: 600,
             textDecoration: "none", padding: "8px 16px", borderRadius: 8,
           }}>Ingresar</a>

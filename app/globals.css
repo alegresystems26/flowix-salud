@@ -87,24 +87,48 @@ html { scroll-behavior: smooth; }
 .faq-arrow { transition: transform 0.22s ease; display: inline-block; }
 .faq-item[open] .faq-arrow { transform: rotate(45deg); }
 
-/* ─── RESPONSIVE — 900px ─────────────────────────────────────── */
+/* ─── RESPONSIVE — 900px (tablets grandes) ───────────────────── */
 @media (max-width: 900px) {
-  .hero-grid     { grid-template-columns: 1fr !important; }
+  .hero-grid     { grid-template-columns: 1fr !important; gap: 48px !important; }
   .hero-preview  { display: none !important; }
   .stats-grid    { grid-template-columns: repeat(2, 1fr) !important; }
   .footer-grid   { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
   .footer-grid > div:first-child { grid-column: 1 / -1; }
   .pain-grid     { grid-template-columns: 1fr !important; }
   .detail-row    { grid-template-columns: 1fr !important; direction: ltr !important; }
+  .download-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .download-cta  { text-align: center !important; }
 }
 
-/* ─── RESPONSIVE — 600px ─────────────────────────────────────── */
+/* ─── RESPONSIVE — 768px (tablets medianas / iPad) ───────────── */
+@media (max-width: 768px) {
+  .hero-section  { padding: 80px 24px 64px !important; }
+  .section-pad   { padding: 64px 24px !important; }
+  .nav-links     { display: none !important; }
+  .stats-grid    { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+  .detail-row    { gap: 40px !important; }
+  .footer-grid   { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+}
+
+/* ─── RESPONSIVE — 600px (móviles) ──────────────────────────── */
 @media (max-width: 600px) {
-  .nav-links    { display: none !important; }
-  .hero-section { padding: 80px 20px 60px !important; }
-  .section-pad  { padding: 60px 20px !important; }
-  .stats-grid   { grid-template-columns: 1fr 1fr !important; }
-  .footer-grid  { grid-template-columns: 1fr !important; }
-  .cta-buttons  { flex-direction: column !important; align-items: stretch !important; }
-  .cta-buttons a { text-align: center; }
+  nav { padding: 0 20px !important; height: 60px !important; }
+  .nav-login-btn { display: none !important; }
+  .hero-section  { padding: 72px 20px 52px !important; }
+  .section-pad   { padding: 52px 20px !important; }
+  .stats-grid    { grid-template-columns: 1fr 1fr !important; gap: 12px !important; padding: 20px !important; }
+  .footer-grid   { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .cta-buttons   { flex-direction: column !important; align-items: stretch !important; }
+  .cta-buttons a, .cta-buttons button { text-align: center !important; justify-content: center !important; }
+  .niche-chip    { font-size: 13px !important; padding: 8px 14px !important; }
+  .download-grid { padding: 36px 24px !important; grid-template-columns: 1fr !important; }
+}
+
+/* ─── RESPONSIVE — 420px (móviles pequeños) ─────────────────── */
+@media (max-width: 420px) {
+  nav { padding: 0 16px !important; }
+  .hero-section  { padding: 60px 16px 44px !important; }
+  .section-pad   { padding: 44px 16px !important; }
+  .stats-grid    { grid-template-columns: 1fr 1fr !important; }
+  .footer-grid   { grid-template-columns: 1fr !important; }
 }
