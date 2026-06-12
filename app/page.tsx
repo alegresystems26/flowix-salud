@@ -1,3 +1,6 @@
+import ScrollReveal from "./components/ScrollReveal";
+import FeatureTabs from "./components/FeatureTabs";
+
 const B = "#60a5fa";
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`;
 
@@ -30,10 +33,15 @@ const features = [
 
 export default function FlowixSaludLanding() {
   return (
-    <main style={{ fontFamily: "'Outfit', system-ui, sans-serif", color: "#fff", background: "#000", overflowX: "hidden" }}>
+    <main style={{ fontFamily: "'Outfit', system-ui, sans-serif", color: "#fff", background: "#050508", overflowX: "hidden" }}>
 
       {/* Grain */}
       <div aria-hidden style={{ position: "fixed", inset: 0, backgroundImage: GRAIN, opacity: 0.022, pointerEvents: "none", zIndex: 9999 }} />
+
+      {/* Glow fijo — top */}
+      <div aria-hidden style={{ position: "fixed", top: 0, left: 0, right: 0, height: "90vh", background: "radial-gradient(ellipse 100% 70% at 50% 0%, rgba(96,165,250,0.18) 0%, transparent 65%)", pointerEvents: "none", zIndex: 0 }} />
+      {/* Glow fijo — ambient */}
+      <div aria-hidden style={{ position: "fixed", bottom: 0, right: "-10%", width: "55vw", height: "55vh", background: "radial-gradient(ellipse, rgba(0,150,255,0.04) 0%, transparent 65%)", pointerEvents: "none", zIndex: 0 }} />
 
       {/* ── NAV ─────────────────────────────────────────────── */}
       <nav style={{
@@ -61,10 +69,10 @@ export default function FlowixSaludLanding() {
             color: "#71717a", fontSize: 14, fontWeight: 600,
             textDecoration: "none", padding: "8px 16px", borderRadius: 8,
           }}>Ingresar</a>
-          <a href={SYSTEM_REGISTER} style={{
+          <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
             background: B, color: "#000", fontSize: 14, fontWeight: 700,
             textDecoration: "none", padding: "10px 24px", borderRadius: 10,
-          }}>Empezar gratis</a>
+          }}>Quiero probarlo</a>
         </div>
       </nav>
 
@@ -123,21 +131,21 @@ export default function FlowixSaludLanding() {
             </p>
 
             <div className="anim-up cta-buttons" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28, animationDelay: "0.32s" }}>
-              <a href={DOWNLOAD_URL} style={{
-                background: B, color: "#fff", fontWeight: 700, fontSize: 15,
+              <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
+                background: B, color: "#000", fontWeight: 700, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12, letterSpacing: "-0.3px",
                 display: "flex", alignItems: "center", gap: 8,
               }}>
-                ⬇ Descargar para Windows
+                Quiero acceso anticipado →
               </a>
               <a href={SYSTEM_LOGIN} style={{
                 background: "rgba(255,255,255,0.05)", color: "#e4e4e7", fontWeight: 600, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12,
                 border: "1px solid rgba(255,255,255,0.1)",
-              }}>Probar online →</a>
+              }}>Ya tengo cuenta →</a>
             </div>
             <p className="anim-up" style={{ fontSize: 12, color: "#3a3a3a", animationDelay: "0.38s" }}>
-              Windows 10/11 · 64 bits · <a href={SYSTEM_REGISTER} style={{ color: "#555", textDecoration: "underline" }}>o registrate directamente online</a>
+              Sin costo inicial · Sin contrato
             </p>
 
             <div className="anim-up" style={{ display: "flex", gap: 22, flexWrap: "wrap", animationDelay: "0.42s" }}>
@@ -235,23 +243,127 @@ export default function FlowixSaludLanding() {
         </div>
       </div>
 
-      {/* ── NICHES ──────────────────────────────────────────── */}
-      <section className="sr" style={{ padding: "72px 40px", maxWidth: 1180, margin: "0 auto" }}>
-        <p style={{ textAlign: "center" as const, color: "#333", fontSize: 12, marginBottom: 20, textTransform: "uppercase" as const, letterSpacing: "0.12em", fontWeight: 700 }}>Adaptado a tu especialidad</p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
-          {niches.map((n, i) => (
-            <div key={n.label} className="niche-chip" style={{
-              display: "flex", alignItems: "center", gap: 8,
-              background: i < 2 ? "rgba(96,165,250,0.05)" : "rgba(255,255,255,0.02)",
-              border: i < 2 ? "1px solid rgba(96,165,250,0.18)" : "1px solid rgba(255,255,255,0.07)",
-              borderRadius: 12, padding: "10px 18px", fontSize: 14,
-              color: i < 2 ? "#93c5fd" : "#555", cursor: "default",
-            }}>
-              <span style={{ fontSize: 18 }}>{n.emoji}</span>
-              {n.label}
-              {i < 2 && <span style={{ fontSize: 10, background: "rgba(96,165,250,0.15)", color: B, borderRadius: 5, padding: "1px 7px", fontWeight: 700, marginLeft: 4 }}>Lanzamiento</span>}
-            </div>
-          ))}
+      {/* ── PAIN POINTS ─────────────────────────────────────── */}
+      <section className="section-pad" style={{ padding: "80px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+          <div className="sr" style={{ maxWidth: 560, marginBottom: 52 }}>
+            <p style={{ color: "#ef4444", fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>El problema</p>
+            <h2 style={{ fontSize: "clamp(26px, 3.5vw, 48px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.08, margin: "0 0 16px" }}>
+              Así gestionan la mayoría<br />de los centros hoy.
+            </h2>
+            <p style={{ color: "#666", fontSize: 15, lineHeight: 1.75, margin: 0 }}>
+              Cuadernos, WhatsApp y memoria. Funciona hasta que deja de funcionar — y cuando falla, te cuesta tiempo, plata o un paciente.
+            </p>
+          </div>
+          <div className="pain-grid sr" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+            {[
+              {
+                tag: "Historial clínico en papel",
+                pain: "Buscás en cuadernos o en fotos del celular qué hiciste en la sesión anterior. Si el paciente vuelve después de meses, perdiste el contexto.",
+              },
+              {
+                tag: "Turnos por WhatsApp",
+                pain: "Coordinás todo por mensaje, el paciente se olvida, vos también. Sin registro centralizado, los cruces y los huecos son inevitables.",
+              },
+              {
+                tag: "Plan de tratamiento de memoria",
+                pain: "Sabés más o menos en qué sesión está cada paciente, pero no exactamente. Cuando son 15 o 20, la cabeza no alcanza.",
+              },
+              {
+                tag: "Caja sin cierre real",
+                pain: "Al final del día no sabés cuánto entraste, quién pagó, quién debe y qué método usó cada uno. El control financiero es un estimado.",
+              },
+            ].map((p, i) => (
+              <div key={i} style={{
+                background: "rgba(239,68,68,0.03)", border: "1px solid rgba(239,68,68,0.1)",
+                borderRadius: 16, padding: "28px 32px",
+              }}>
+                <div style={{
+                  display: "inline-block", background: "rgba(239,68,68,0.08)",
+                  border: "1px solid rgba(239,68,68,0.2)", borderRadius: 8,
+                  padding: "4px 12px", fontSize: 11, color: "#ef4444", fontWeight: 700,
+                  letterSpacing: "0.06em", textTransform: "uppercase" as const, marginBottom: 16,
+                }}>{p.tag}</div>
+                <p style={{ fontSize: 15, color: "#777", lineHeight: 1.75, margin: 0 }}>{p.pain}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── DIFERENCIADORES ─────────────────────────────────── */}
+      <section className="section-pad sr" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
+          <div style={{ maxWidth: 560, marginBottom: 56 }}>
+            <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Por qué Flowix Salud</p>
+            <h2 style={{ fontSize: "clamp(26px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.08, margin: "0 0 14px" }}>
+              No es lo mismo que<br />lo que ya tenés.
+            </h2>
+            <p style={{ color: "#666", fontSize: 15, lineHeight: 1.75, margin: 0 }}>
+              Excel y Google Calendar no fueron hechos para gestionar un centro de salud. Flowix Salud sí.
+            </p>
+          </div>
+          <div style={{ overflowX: "auto" as const }}>
+            <table style={{ width: "100%", borderCollapse: "separate" as const, borderSpacing: 0 }}>
+              <thead>
+                <tr>
+                  <th style={{ width: "28%", padding: "12px 20px", textAlign: "left" as const, fontSize: 12, color: "#333", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}></th>
+                  {[
+                    { label: "Excel / Sheets",   muted: true  },
+                    { label: "Google Calendar",  muted: true  },
+                    { label: "Flowix Salud",     muted: false },
+                  ].map((col, ci) => (
+                    <th key={ci} style={{
+                      width: "24%", padding: "12px 20px", textAlign: "center" as const,
+                      fontSize: 13, fontWeight: 700,
+                      color: col.muted ? "#444" : B,
+                      background: col.muted ? "transparent" : "rgba(96,165,250,0.04)",
+                      borderRadius: ci === 2 ? "12px 12px 0 0" : undefined,
+                      border: ci === 2 ? "1px solid rgba(96,165,250,0.2)" : undefined,
+                      borderBottom: ci === 2 ? "none" : undefined,
+                    }}>{col.label}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { feature: "Historia clínica digital",       excel: false, gcal: false, flowix: true },
+                  { feature: "Planes de tratamiento",          excel: false, gcal: false, flowix: true },
+                  { feature: "Notas de sesión por paciente",   excel: false, gcal: false, flowix: true },
+                  { feature: "Agenda vinculada al paciente",   excel: false, gcal: true,  flowix: true },
+                  { feature: "Caja y cobros integrados",       excel: false, gcal: false, flowix: true },
+                  { feature: "Reportes automáticos",           excel: false, gcal: false, flowix: true },
+                  { feature: "Sin fórmulas ni configuración",  excel: false, gcal: false, flowix: true },
+                  { feature: "Soporte local en Argentina",     excel: false, gcal: false, flowix: true },
+                ].map((row, ri) => {
+                  const isLast = ri === 7;
+                  const cell = (val: boolean, isFlowix: boolean) => (
+                    <td style={{
+                      padding: "14px 20px", textAlign: "center" as const,
+                      background: isFlowix ? "rgba(96,165,250,0.04)" : "transparent",
+                      borderLeft:   isFlowix ? "1px solid rgba(96,165,250,0.2)" : undefined,
+                      borderRight:  isFlowix ? "1px solid rgba(96,165,250,0.2)" : undefined,
+                      borderBottom: isFlowix && isLast ? "1px solid rgba(96,165,250,0.2)" : isFlowix ? "1px solid rgba(96,165,250,0.08)" : "1px solid rgba(255,255,255,0.04)",
+                      borderRadius: isFlowix && isLast ? "0 0 12px 12px" : undefined,
+                    }}>
+                      {val
+                        ? <span style={{ color: isFlowix ? B : "#555", fontSize: 16, fontWeight: 700 }}>✓</span>
+                        : <span style={{ color: "#2a2a2a", fontSize: 16 }}>✕</span>
+                      }
+                    </td>
+                  );
+                  return (
+                    <tr key={ri}>
+                      <td style={{ padding: "14px 20px", fontSize: 14, color: "#777", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>{row.feature}</td>
+                      {cell(row.excel,  false)}
+                      {cell(row.gcal,   false)}
+                      {cell(row.flowix, true)}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -274,7 +386,7 @@ export default function FlowixSaludLanding() {
                 borderRadius: 18, padding: "28px", position: "relative", overflow: "hidden",
                 transitionDelay: `${i * 0.07}s`,
               }}>
-                <div style={{ position: "absolute", top: 20, right: 20, background: "rgba(255,255,255,0.04)", borderRadius: 7, padding: "3px 10px", fontSize: 11, color: "#333", fontWeight: 600 }}>{f.tag}</div>
+                <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 7, padding: "3px 10px", fontSize: 11, color: "#666", fontWeight: 600, letterSpacing: "0.04em" }}>{f.tag}</div>
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.12)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, marginBottom: 20 }}>{f.icon}</div>
                 <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 10, letterSpacing: "-0.3px" }}>{f.title}</h3>
                 <p style={{ fontSize: 14, color: "#6b6b6b", lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
@@ -316,6 +428,38 @@ export default function FlowixSaludLanding() {
         </div>
       </section>
 
+      {/* ── NICHES ──────────────────────────────────────────── */}
+      <section className="section-pad sr" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: 1180, margin: "0 auto", textAlign: "center" as const }}>
+          <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Para tu especialidad</p>
+          <h2 style={{ fontSize: "clamp(26px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.08, margin: "0 0 14px" }}>
+            ¿Tu especialidad está acá?
+          </h2>
+          <p style={{ color: "#666", fontSize: 15, lineHeight: 1.75, maxWidth: 480, margin: "0 auto 44px" }}>
+            Flowix Salud está pensado para centros que trabajan con pacientes, sesiones y planes de tratamiento.
+          </p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center", marginBottom: 28 }}>
+            {niches.map((n, i) => (
+              <div key={n.label} className="niche-chip" style={{
+                display: "flex", alignItems: "center", gap: 8,
+                background: i < 2 ? "rgba(96,165,250,0.05)" : "rgba(255,255,255,0.04)",
+                border: i < 2 ? "1px solid rgba(96,165,250,0.2)" : "1px solid rgba(255,255,255,0.1)",
+                borderRadius: 12, padding: "10px 18px", fontSize: 14,
+                color: i < 2 ? "#93c5fd" : "#aaa", cursor: "default",
+              }}>
+                <span style={{ fontSize: 17 }}>{n.emoji}</span>
+                {n.label}
+                {i < 2 && <span style={{ fontSize: 10, background: "rgba(96,165,250,0.15)", color: B, borderRadius: 5, padding: "1px 7px", fontWeight: 700, marginLeft: 4 }}>Lanzamiento</span>}
+              </div>
+            ))}
+          </div>
+          <p style={{ fontSize: 13, color: "#444" }}>
+            ¿No ves tu especialidad?{" "}
+            <a href={WA_GENERAL} target="_blank" rel="noopener noreferrer" style={{ color: B, textDecoration: "none", fontWeight: 600 }}>Igual puede funcionar →</a>
+          </p>
+        </div>
+      </section>
+
       {/* ── EL SISTEMA EN DETALLE ────────────────────────────── */}
       <section id="detalle" className="section-pad" style={{ padding: "80px 40px 100px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
@@ -330,152 +474,8 @@ export default function FlowixSaludLanding() {
             </p>
           </div>
 
-          {/* Historia clínica */}
-          <div className="detail-row sr" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 80 }}>
-            <div>
-              <div style={{ display: "inline-block", background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.15)", borderRadius: 8, padding: "4px 12px", fontSize: 11, color: B, fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" as const, marginBottom: 22 }}>Historia clínica</div>
-              <h3 style={{ fontSize: "clamp(20px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1.2px", lineHeight: 1.1, marginBottom: 16 }}>La ficha de cada paciente, siempre disponible</h3>
-              <p style={{ color: "#6b6b6b", fontSize: 15, lineHeight: 1.8, marginBottom: 26 }}>
-                Cada paciente tiene su ficha digital con antecedentes, diagnóstico inicial y toda la evolución registrada sesión a sesión. Nunca más buscás en cuadernos o en el celular.
-              </p>
-              <div style={{ display: "flex", flexDirection: "column" as const, gap: 11 }}>
-                {["Diagnóstico y motivo de consulta inicial","Antecedentes médicos relevantes","Evolución registrada sesión por sesión","Búsqueda rápida por nombre o diagnóstico"].map(f => (
-                  <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <span style={{ color: B, fontWeight: 700, fontSize: 13, marginTop: 1, flexShrink: 0 }}>✓</span>
-                    <span style={{ fontSize: 14, color: "#777", lineHeight: 1.5 }}>{f}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div style={{ background: "rgba(8,8,10,0.95)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 18, overflow: "hidden" }}>
-              <div style={{ padding: "10px 14px", background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 6 }}>
-                {["#ff5f56","#ffbd2e","#27c93f"].map(c => <div key={c} style={{ width: 9, height: 9, borderRadius: "50%", background: c }} />)}
-                <span style={{ flex: 1, textAlign: "center" as const, fontSize: 10, color: "#333", fontWeight: 600 }}>Flowix Salud — Historia clínica</span>
-              </div>
-              <div style={{ padding: 20 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14, padding: "10px 12px", background: "rgba(96,165,250,0.05)", borderRadius: 10, border: "1px solid rgba(96,165,250,0.1)" }}>
-                  <div style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(96,165,250,0.15)", border: "1px solid rgba(96,165,250,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 14, color: B }}>M</div>
-                  <div>
-                    <p style={{ margin: 0, fontSize: 13, fontWeight: 700 }}>María González</p>
-                    <p style={{ margin: 0, fontSize: 10, color: "#555" }}>Lumbalgia L4-L5 · Paciente activa</p>
-                  </div>
-                </div>
-                <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 10, padding: "10px 12px", marginBottom: 10 }}>
-                  <p style={{ margin: "0 0 4px", fontSize: 9, color: "#444", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Antecedentes</p>
-                  <p style={{ margin: 0, fontSize: 11, color: "#666", lineHeight: 1.5 }}>Sin patologías previas. Trabajo sedentario 8hs/día. Rx: protrusión L4-L5.</p>
-                </div>
-                <p style={{ margin: "0 0 8px", fontSize: 9, color: "#444", fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>Últimas notas</p>
-                {[
-                  { date: "27/05", note: "Mejora en flexión. Trabajo lumbar + estabilización." },
-                  { date: "22/05", note: "Primera sesión. Evaluación y movilidad inicial." },
-                ].map((n, i) => (
-                  <div key={i} style={{ display: "flex", gap: 10, padding: "7px 0", borderBottom: i === 0 ? "1px solid rgba(255,255,255,0.04)" : undefined }}>
-                    <span style={{ fontSize: 10, color: "#3a3a3a", fontFamily: "monospace", flexShrink: 0, paddingTop: 1 }}>{n.date}</span>
-                    <p style={{ margin: 0, fontSize: 11, color: "#666", lineHeight: 1.5 }}>{n.note}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Planes de tratamiento */}
-          <div className="detail-row sr" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 80, direction: "rtl" as const }}>
-            <div style={{ direction: "ltr" as const }}>
-              <div style={{ display: "inline-block", background: "rgba(167,139,250,0.08)", border: "1px solid rgba(167,139,250,0.15)", borderRadius: 8, padding: "4px 12px", fontSize: 11, color: "#a78bfa", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" as const, marginBottom: 22 }}>Planes de tratamiento</div>
-              <h3 style={{ fontSize: "clamp(20px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1.2px", lineHeight: 1.1, marginBottom: 16 }}>Seguimiento automático de cada plan</h3>
-              <p style={{ color: "#6b6b6b", fontSize: 15, lineHeight: 1.8, marginBottom: 26 }}>
-                Definís la cantidad de sesiones del plan y el sistema lleva el conteo solo. Sabés exactamente el progreso de cada paciente sin tener que recordarlo.
-              </p>
-              <div style={{ display: "flex", flexDirection: "column" as const, gap: 11 }}>
-                {["Cantidad de sesiones configurable por plan","Barra de progreso visual en tiempo real","Alerta cuando quedan pocas sesiones","Historial de planes anteriores del paciente"].map(f => (
-                  <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <span style={{ color: "#a78bfa", fontWeight: 700, fontSize: 13, marginTop: 1, flexShrink: 0 }}>✓</span>
-                    <span style={{ fontSize: 14, color: "#777", lineHeight: 1.5 }}>{f}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div style={{ direction: "ltr" as const, background: "rgba(8,8,10,0.95)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 18, overflow: "hidden" }}>
-              <div style={{ padding: "10px 14px", background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 6 }}>
-                {["#ff5f56","#ffbd2e","#27c93f"].map(c => <div key={c} style={{ width: 9, height: 9, borderRadius: "50%", background: c }} />)}
-                <span style={{ flex: 1, textAlign: "center" as const, fontSize: 10, color: "#333", fontWeight: 600 }}>Flowix Salud — Planes activos</span>
-              </div>
-              <div style={{ padding: 20 }}>
-                {[
-                  { name: "María G.",  diag: "Lumbalgia L4-L5",    sessions: 7,  total: 12, color: B },
-                  { name: "Carlos R.", diag: "Cervicalgia crónica", sessions: 3,  total: 8,  color: "#a78bfa" },
-                  { name: "Laura M.",  diag: "Esguince tobillo",    sessions: 10, total: 10, color: "#34d399" },
-                ].map((p, i) => (
-                  <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)", borderRadius: 12, padding: "12px 14px", marginBottom: 10 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                      <div>
-                        <p style={{ margin: 0, fontSize: 12, fontWeight: 700 }}>{p.name}</p>
-                        <p style={{ margin: 0, fontSize: 10, color: "#555" }}>{p.diag}</p>
-                      </div>
-                      <span style={{ fontSize: 11, fontWeight: 700, color: p.color }}>{p.sessions}/{p.total}</span>
-                    </div>
-                    <div style={{ height: 4, background: "rgba(255,255,255,0.06)", borderRadius: 4, overflow: "hidden" }}>
-                      <div style={{ width: `${(p.sessions / p.total) * 100}%`, height: "100%", background: p.color, borderRadius: 4 }} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Agenda + Caja */}
-          <div className="detail-row sr" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
-            <div>
-              <div style={{ display: "inline-block", background: "rgba(52,211,153,0.08)", border: "1px solid rgba(52,211,153,0.15)", borderRadius: 8, padding: "4px 12px", fontSize: 11, color: "#34d399", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase" as const, marginBottom: 22 }}>Agenda & Caja</div>
-              <h3 style={{ fontSize: "clamp(20px, 2.5vw, 30px)", fontWeight: 800, letterSpacing: "-1.2px", lineHeight: 1.1, marginBottom: 16 }}>Turnos y cobros, sin complicaciones</h3>
-              <p style={{ color: "#6b6b6b", fontSize: 15, lineHeight: 1.8, marginBottom: 26 }}>
-                Gestioná la agenda de todos los profesionales desde un solo lugar. Cada turno se vincula automáticamente a la historia clínica del paciente. El cierre de caja es inmediato.
-              </p>
-              <div style={{ display: "flex", flexDirection: "column" as const, gap: 11 }}>
-                {["Vista diaria y semanal por profesional","Alta de turno vinculada al paciente","Registro de cobros particulares","Cierre diario con resumen neto"].map(f => (
-                  <div key={f} style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <span style={{ color: "#34d399", fontWeight: 700, fontSize: 13, marginTop: 1, flexShrink: 0 }}>✓</span>
-                    <span style={{ fontSize: 14, color: "#777", lineHeight: 1.5 }}>{f}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div style={{ background: "rgba(8,8,10,0.95)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 18, overflow: "hidden" }}>
-              <div style={{ padding: "10px 14px", background: "rgba(255,255,255,0.02)", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: 6 }}>
-                {["#ff5f56","#ffbd2e","#27c93f"].map(c => <div key={c} style={{ width: 9, height: 9, borderRadius: "50%", background: c }} />)}
-                <span style={{ flex: 1, textAlign: "center" as const, fontSize: 10, color: "#333", fontWeight: 600 }}>Flowix Salud — Agenda · Martes</span>
-              </div>
-              <div style={{ padding: 20 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                  <div>
-                    <p style={{ margin: 0, fontSize: 12, fontWeight: 700 }}>Martes, 27 de mayo</p>
-                    <p style={{ margin: 0, fontSize: 10, color: "#444" }}>5 turnos · $72.000 proyectados</p>
-                  </div>
-                  <div style={{ background: "rgba(96,165,250,0.1)", border: "1px solid rgba(96,165,250,0.2)", borderRadius: 7, padding: "4px 10px", fontSize: 10, color: B, fontWeight: 600 }}>En curso</div>
-                </div>
-                {[
-                  { time: "09:00", name: "María G.",  diag: "Lumbalgia · Ses. 7",  color: B,         done: true  },
-                  { time: "10:30", name: "Carlos R.", diag: "Cervicalgia · Ses. 3", color: "#a78bfa", done: false },
-                  { time: "12:00", name: "Laura M.",  diag: "Esguince · Ses. 10",  color: "#34d399", done: false },
-                  { time: "15:00", name: "Jorge P.",  diag: "Lumbalgia · Ses. 2",  color: "#f59e0b", done: false },
-                ].map((a, i) => (
-                  <div key={i} style={{
-                    display: "flex", alignItems: "center", gap: 10,
-                    padding: "8px 10px", borderRadius: 10, marginBottom: 6,
-                    background: a.done ? "rgba(96,165,250,0.04)" : "rgba(255,255,255,0.025)",
-                    border: `1px solid ${a.done ? "rgba(96,165,250,0.12)" : "rgba(255,255,255,0.05)"}`,
-                  }}>
-                    <span style={{ fontSize: 10, color: "#444", width: 34, flexShrink: 0, fontFamily: "monospace" }}>{a.time}</span>
-                    <div style={{ width: 3, height: 28, borderRadius: 3, background: a.color, flexShrink: 0 }} />
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ margin: 0, fontSize: 12, fontWeight: 600 }}>{a.name}</p>
-                      <p style={{ margin: 0, fontSize: 10, color: "#555", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" as const }}>{a.diag}</p>
-                    </div>
-                    {a.done && <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={B} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>}
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="sr">
+            <FeatureTabs />
           </div>
 
         </div>
@@ -506,20 +506,20 @@ export default function FlowixSaludLanding() {
               </div>
             </div>
             <div className="download-cta" style={{ textAlign: "center" as const, display: "flex", flexDirection: "column" as const, gap: 12 }}>
-              <a href={DOWNLOAD_URL} style={{
+              <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10,
-                background: B, color: "#fff", fontWeight: 700, fontSize: 16,
+                background: B, color: "#000", fontWeight: 700, fontSize: 16,
                 textDecoration: "none", padding: "16px 36px", borderRadius: 14,
                 whiteSpace: "nowrap" as const, letterSpacing: "-0.3px",
-              }}>⬇ Descargar para Windows</a>
+              }}>Quiero acceso anticipado →</a>
               <a href={SYSTEM_LOGIN} style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
                 color: "#555", fontSize: 14, textDecoration: "none",
                 border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12,
                 padding: "12px 28px", background: "rgba(255,255,255,0.03)",
                 whiteSpace: "nowrap" as const,
-              }}>Probar online · Ingresar →</a>
-              <p style={{ color: "#333", fontSize: 12, margin: 0 }}>Windows 10/11 · Sin tarjeta · Kinesiología · Quiropraxia · Odontología</p>
+              }}>Ya tengo cuenta · Ingresar →</a>
+              <p style={{ color: "#333", fontSize: 12, margin: 0 }}>Sin costo inicial · Sin contrato · Kinesiología · Quiropraxia · Odontología</p>
             </div>
           </div>
         </div>
@@ -552,7 +552,7 @@ export default function FlowixSaludLanding() {
               {[
                 { label: "Funciones",    href: "#funciones" },
                 { label: "El sistema",   href: "#detalle" },
-                { label: "Registrarse",  href: SYSTEM_REGISTER },
+                { label: "Quiero probarlo", href: WA_EARLY },
                 { label: "Ingresar",     href: SYSTEM_LOGIN },
               ].map(l => (
                 <a key={l.label} href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined} className="footer-link" style={{ display: "block", color: "#444", fontSize: 14, textDecoration: "none", marginBottom: 11 }}>{l.label}</a>
@@ -585,17 +585,7 @@ export default function FlowixSaludLanding() {
         </div>
       </footer>
 
-      {/* Scroll-reveal */}
-      <script dangerouslySetInnerHTML={{ __html: `
-        (function(){
-          var io = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-              if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-            });
-          },{ threshold: 0.1 });
-          document.querySelectorAll('.sr').forEach(function(el){ io.observe(el); });
-        })();
-      ` }} />
+      <ScrollReveal />
     </main>
   );
 }
