@@ -52,10 +52,10 @@ export default function FlowixSaludLanding() {
         justifyContent: "space-between", height: 68,
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
-          <div style={{ background: B, color: "#000", fontFamily: "monospace", fontWeight: 800, fontSize: 13, padding: "5px 11px", borderRadius: 9 }}>{"</>"}</div>
+          <span style={{ fontFamily: "monospace", fontWeight: 800, fontSize: 22, color: B, textShadow: "0 0 5px rgba(96,165,250,0.55), 0 0 12px rgba(96,165,250,0.25)", letterSpacing: "-1px" }}>{"</>"}</span>
           <span style={{ fontWeight: 700, fontSize: 22, letterSpacing: "-0.5px" }}>
             <span style={{ color: "#fff" }}>Flo</span><span style={{ color: B }}>wix</span>
-            <span style={{ fontSize: 14, color: B, fontWeight: 600, marginLeft: 7, opacity: 0.8 }}>Salud</span>
+            <span style={{ color: "#fff", fontWeight: 700, marginLeft: 8 }}>Salud</span>
           </span>
         </div>
         <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: 2 }}>
