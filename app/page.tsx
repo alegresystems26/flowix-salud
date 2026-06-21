@@ -436,10 +436,10 @@ export default function FlowixSaludLanding() {
             {niches.map((n, i) => (
               <div key={n.label} className="niche-chip" style={{
                 display: "flex", alignItems: "center", gap: 8,
-                background: i < 2 ? "rgba(96,165,250,0.05)" : "rgba(255,255,255,0.04)",
-                border: i < 2 ? "1px solid rgba(96,165,250,0.2)" : "1px solid rgba(255,255,255,0.1)",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.1)",
                 borderRadius: 12, padding: "10px 18px", fontSize: 14,
-                color: i < 2 ? "#93c5fd" : "#aaa", cursor: "default",
+                color: "#aaa", cursor: "default",
               }}>
                 <span style={{ fontSize: 17 }}>{n.emoji}</span>
                 {n.label}
