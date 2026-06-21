@@ -143,7 +143,7 @@ export default function FlowixSaludLanding() {
             </p>
 
             <div className="anim-up" style={{ display: "flex", gap: 22, flexWrap: "wrap", animationDelay: "0.42s" }}>
-              {["Precio especial de lanzamiento", "Sin contrato", "Datos seguros"].map(t => (
+              {["Sin contrato", "Datos seguros", "Soporte directo"].map(t => (
                 <span key={t} style={{ color: "#444", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
                   <span style={{ color: B, fontWeight: 700 }}>✓</span> {t}
                 </span>
@@ -224,7 +224,7 @@ export default function FlowixSaludLanding() {
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", background: "rgba(255,255,255,0.01)" }}>
         <div className="stats-grid sr" style={{ maxWidth: 1180, margin: "0 auto", padding: "30px 40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", textAlign: "center" as const }}>
           {[
-            { value: "2",    label: "Rubros en lanzamiento" },
+            { value: "2",    label: "Rubros activos" },
             { value: "100%", label: "Historia clínica digital" },
             { value: "∞",    label: "Sesiones por paciente" },
             { value: "ARG",  label: "Soporte local directo" },
@@ -443,7 +443,6 @@ export default function FlowixSaludLanding() {
               }}>
                 <span style={{ fontSize: 17 }}>{n.emoji}</span>
                 {n.label}
-                {i < 2 && <span style={{ fontSize: 10, background: "rgba(96,165,250,0.15)", color: B, borderRadius: 5, padding: "1px 7px", fontWeight: 700, marginLeft: 4 }}>Lanzamiento</span>}
               </div>
             ))}
           </div>
