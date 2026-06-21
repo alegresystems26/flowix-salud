@@ -53,27 +53,20 @@ export default function FlowixSaludLanding() {
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
           <div style={{ background: B, color: "#000", fontFamily: "monospace", fontWeight: 800, fontSize: 13, padding: "5px 11px", borderRadius: 9 }}>{"</>"}</div>
-          <div>
-            <span style={{ fontWeight: 700, fontSize: 20, letterSpacing: "-0.5px" }}>
-              <span style={{ color: "#fff" }}>Flo</span><span style={{ color: B }}>wix</span>
-            </span>
-            <span style={{ fontSize: 13, color: "#3b82f6", fontWeight: 600, marginLeft: 6 }}>Salud</span>
-          </div>
+          <span style={{ fontWeight: 700, fontSize: 22, letterSpacing: "-0.5px" }}>
+            <span style={{ color: "#fff" }}>Flo</span><span style={{ color: B }}>wix</span>
+            <span style={{ fontSize: 14, color: B, fontWeight: 600, marginLeft: 7, opacity: 0.8 }}>Salud</span>
+          </span>
         </div>
         <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: 2 }}>
           <a href="#funciones" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Funciones</a>
           <a href="#detalle"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>El sistema</a>
+          <a href="#nichos" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Para quién</a>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <a href={SYSTEM_LOGIN} className="nav-link nav-login-btn" style={{
-            color: "#71717a", fontSize: 14, fontWeight: 600,
-            textDecoration: "none", padding: "8px 16px", borderRadius: 8,
-          }}>Ingresar</a>
-          <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
-            background: B, color: "#000", fontSize: 14, fontWeight: 700,
-            textDecoration: "none", padding: "10px 24px", borderRadius: 10,
-          }}>Quiero probarlo</a>
-        </div>
+        <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
+          background: "linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)", color: "#000", fontSize: 14, fontWeight: 700,
+          textDecoration: "none", padding: "10px 24px", borderRadius: 10,
+        }}>Quiero probarlo</a>
       </nav>
 
       {/* ── HERO ─────────────────────────────────────────────── */}
@@ -429,7 +422,7 @@ export default function FlowixSaludLanding() {
       </section>
 
       {/* ── NICHES ──────────────────────────────────────────── */}
-      <section className="section-pad sr" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <section id="nichos" className="section-pad sr" style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto", textAlign: "center" as const }}>
           <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Para tu especialidad</p>
           <h2 style={{ fontSize: "clamp(26px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.08, margin: "0 0 14px" }}>
