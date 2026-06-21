@@ -124,12 +124,12 @@ export default function FlowixSaludLanding() {
             </p>
 
             <div className="anim-up cta-buttons" style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 28, animationDelay: "0.32s" }}>
-              <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
+              <a href={WA_GENERAL} target="_blank" rel="noopener noreferrer" style={{
                 background: B, color: "#000", fontWeight: 700, fontSize: 15,
                 textDecoration: "none", padding: "14px 28px", borderRadius: 12, letterSpacing: "-0.3px",
                 display: "flex", alignItems: "center", gap: 8,
               }}>
-                Quiero acceso anticipado →
+                Quiero probarlo →
               </a>
               <a href={SYSTEM_LOGIN} style={{
                 background: "rgba(255,255,255,0.05)", color: "#e4e4e7", fontWeight: 600, fontSize: 15,
@@ -483,15 +483,15 @@ export default function FlowixSaludLanding() {
             padding: "64px 64px", display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "center",
           }}>
             <div>
-              <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Acceso anticipado</p>
+              <p style={{ color: B, fontSize: 12, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.12em", marginBottom: 14 }}>Empezá hoy</p>
               <h2 style={{ fontSize: "clamp(28px, 3.5vw, 52px)", fontWeight: 800, letterSpacing: "-2.5px", margin: "0 0 16px", lineHeight: 1.04 }}>
-                Sé el primero en<br /><em style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", color: B }}>usar Flowix Salud.</em>
+                Tu centro organizado<br /><em style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontStyle: "italic", color: B }}>desde mañana.</em>
               </h2>
               <p style={{ color: "#6b6b6b", fontSize: 16, lineHeight: 1.75, margin: "0 0 32px", maxWidth: 420 }}>
-                Los profesionales que se sumen ahora obtienen precio especial de lanzamiento y acompañamiento directo durante la implementación.
+                Sin implementaciones largas ni consultores. Flowix Salud se adapta a tu flujo de trabajo en menos de 24 horas.
               </p>
               <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
-                {["Precio de lanzamiento", "Sin contrato", "Datos seguros", "Soporte directo"].map(t => (
+                {["Implementación en 24hs", "Sin contrato", "Datos seguros", "Soporte directo"].map(t => (
                   <span key={t} style={{ color: "#444", fontSize: 13, display: "flex", alignItems: "center", gap: 6 }}>
                     <span style={{ color: B }}>✓</span> {t}
                   </span>
@@ -499,12 +499,12 @@ export default function FlowixSaludLanding() {
               </div>
             </div>
             <div className="download-cta" style={{ textAlign: "center" as const, display: "flex", flexDirection: "column" as const, gap: 12 }}>
-              <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
+              <a href={WA_GENERAL} target="_blank" rel="noopener noreferrer" style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 10,
                 background: B, color: "#000", fontWeight: 700, fontSize: 16,
                 textDecoration: "none", padding: "16px 36px", borderRadius: 14,
                 whiteSpace: "nowrap" as const, letterSpacing: "-0.3px",
-              }}>Quiero acceso anticipado →</a>
+              }}>Quiero probarlo →</a>
               <a href={SYSTEM_LOGIN} style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
                 color: "#555", fontSize: 14, textDecoration: "none",
