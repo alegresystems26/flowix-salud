@@ -1,9 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+body { background: #050508; color: #fff; }
 
 /* ─── KEYFRAMES ─────────────────────────────────────────────── */
 @keyframes fadeInUp {
@@ -70,6 +67,7 @@ html { scroll-behavior: smooth; }
   border-color: rgba(96,165,250,0.35) !important;
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(96,165,250,0.07);
+  transition-delay: 0s !important;
 }
 
 .niche-chip { transition: border-color 0.2s, color 0.2s; }
@@ -87,6 +85,9 @@ html { scroll-behavior: smooth; }
 .faq-arrow { transition: transform 0.22s ease; display: inline-block; }
 .faq-item[open] .faq-arrow { transform: rotate(45deg); }
 
+/* ─── LAYOUT ─────────────────────────────────────────────────── */
+.section-pad { padding: 80px 40px; }
+
 /* ─── RESPONSIVE — 900px (tablets grandes) ───────────────────── */
 @media (max-width: 900px) {
   .hero-grid     { grid-template-columns: 1fr !important; gap: 48px !important; }
@@ -95,6 +96,7 @@ html { scroll-behavior: smooth; }
   .footer-grid   { grid-template-columns: 1fr 1fr !important; gap: 36px !important; }
   .footer-grid > div:first-child { grid-column: 1 / -1; }
   .pain-grid     { grid-template-columns: 1fr !important; }
+  .tab-grid      { grid-template-columns: 1fr !important; }
   .detail-row    { grid-template-columns: 1fr !important; direction: ltr !important; }
   .download-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
   .download-cta  { text-align: center !important; }
