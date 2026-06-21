@@ -60,8 +60,9 @@ export default function FlowixSaludLanding() {
         </div>
         <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: 2 }}>
           <a href="#funciones" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Funciones</a>
-          <a href="#detalle"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>El sistema</a>
-          <a href="#nichos" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Para quién</a>
+          <a href="#detalle"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Sistema</a>
+          <a href="#nichos"   className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Para quién</a>
+          <a href="#contacto" className="nav-link" style={{ color: "#71717a", fontSize: 14, textDecoration: "none", padding: "8px 16px", borderRadius: 8 }}>Contacto</a>
         </div>
         <a href={WA_EARLY} target="_blank" rel="noopener noreferrer" style={{
           background: "linear-gradient(135deg, #60a5fa 0%, #818cf8 100%)", color: "#000", fontSize: 14, fontWeight: 700,
@@ -475,7 +476,7 @@ export default function FlowixSaludLanding() {
       </section>
 
       {/* ── ACCESO ANTICIPADO ────────────────────────────────── */}
-      <section className="section-pad" style={{ padding: "80px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+      <section id="contacto" className="section-pad" style={{ padding: "80px 40px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
           <div className="download-grid sr" style={{
             background: "linear-gradient(135deg, rgba(96,165,250,0.06) 0%, rgba(0,0,0,0) 55%)",
